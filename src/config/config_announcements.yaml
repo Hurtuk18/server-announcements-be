@@ -1,0 +1,19 @@
+service:
+  name: server-announcements-be
+  httpPort: 3001
+  swaggerPort: 3002
+
+paths:
+  openapiYaml: "api/announcements-openapi.yaml"
+  definitionsYaml: "src/config-basic/config-basic_announcements.yaml"
+
+db:
+  host: "localhost"
+  port: 5432
+  database: "announcements"
+  user: "announcements"
+  password: "announcements"
+  schema: "public"
+  ssl: false
+
+debug: false

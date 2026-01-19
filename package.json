@@ -1,0 +1,53 @@
+{
+  "name": "server-announcements-be",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Announcements backend (Express + TS + Prisma) with OpenAPI YAML and swagger-server",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "ENABLE_SWAGGER_STATS=false tsx watch src/announcements.ts",
+    "dev:swagger": "tsx watch src/utils/swagger-server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "start:swagger": "node dist/utils/swagger-server.js",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:deploy": "prisma migrate deploy",
+    "prisma:studio": "prisma studio",
+    "prisma:seed": "prisma db seed",
+    "lint": "eslint ."
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-openapi-validator": "^5.1.8",
+    "fp-ts": "^2.16.11",
+    "helmet": "^7.1.0",
+    "io-ts": "^2.2.22",
+    "js-yaml": "^4.1.0",
+    "swagger-stats": "^0.99.4",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.17.0",
+    "@types/swagger-ui-express": "^4.1.6",
+    "@types/uuid": "^9.0.8",
+    "eslint": "^9.8.0",
+    "prisma": "^5.22.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=18.18"
+  }
+}

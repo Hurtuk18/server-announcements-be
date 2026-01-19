@@ -1,0 +1,71 @@
+defaults:
+  definitions:
+    announcement:
+      title:
+        type: string
+        label: Title
+        required: true
+        sortable: true
+        default: false
+        maxLength: 200
+      content:
+        type: string
+        label: Content
+        required: true
+        sortable: false
+        default: false
+        maxLength: 5000
+      publicationDate:
+        type: datetime
+        label: Publication date
+        required: true
+        sortable: true
+        default: false
+        format: "MM/DD/YYYY HH:mm"
+        pattern: '^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/\d{4}\s([01]\d|2[0-3]):[0-5]\d$'
+      lastUpdate:
+        type: datetime
+        label: Last update
+        required: true
+        sortable: true
+        default: true
+        format: "MM/DD/YYYY HH:mm"
+      categories:
+        type: enum[]
+        label: Category
+        required: true
+        sortable: false
+        default: false
+        values:
+          - value: CITY
+            label: City
+          - value: COMMUNITY_EVENTS
+            label: Community events
+          - value: CRIME_SAFETY
+            label: Crime & safety
+          - value: CULTURE
+            label: Culture
+          - value: DISCOUNTS_BENEFITS
+            label: Discounts & benefits
+          - value: EMERGENCY
+            label: Emergency
+          - value: FOR_SENIORS
+            label: For seniors
+          - value: HEALTH
+            label: Health
+          - value: KIDS_FAMILY
+            label: Kids & family
+
+  listDefaults:
+    sort:
+      field: lastUpdate
+      order: desc
+
+  query:
+    sortFields:
+      - title
+      - publicationDate
+      - lastUpdate
+    orderValues:
+      - asc
+      - desc

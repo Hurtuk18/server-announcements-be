@@ -19,12 +19,66 @@ Service poskytuje REST API pre vytváranie, aktualizáciu a výpis oznámení. T
 
 ## 📦 API Endpointy
 
-* `GET /announcements` – fetchovanie zoznamu oznámení (search, categories, sorting)
-* `GET /announcements/:id` – fetch jedného oznámenia podľa ID
-* `POST /announcements` – vytvorenie nového oznámenia
-* `PUT /announcements/:id` – update oznámenia
-* `DELETE /announcements/:id` – vymazanie oznámenia
-* `GET /announcements/definitions` – metadata pre FE (fields, enums, defaults)
+### GET /announcements
+Získa zoznam oznámení.
+
+Podporované query parametre:
+- `search` – textové vyhľadávanie v title a content
+- `categories` – zoznam kategórií (vráti záznamy, ktoré obsahujú aspoň jednu z nich)
+- `sort` – stĺpec na triedenie (`title`, `publicationDate`, `lastUpdate`)
+- `order` – poradie triedenia (`asc`, `desc`)
+
+---
+
+### GET /announcements/:id
+Získa detail jedného oznámenia podľa ID.
+
+Používa sa na:
+- predvyplnenie dát pri editácii oznámenia
+
+---
+
+### POST /announcements
+Vytvorí nové oznámenie.
+
+Body requestu obsahuje:
+- `title`
+- `content`
+- `publicationDate`
+- `categories` (pole kódov kategórií)
+
+ID nového záznamu je vrátené v response a taktiež daný záznam.
+
+---
+
+### PUT /announcements/:id
+Upraví existujúce oznámenie podľa ID.
+
+Umožňuje aktualizovať:
+- title
+- content
+- publicationDate
+- categories
+
+Vráti daný updatnutý záznam.
+
+---
+
+### DELETE /announcements/:id
+Vymaže oznámenie podľa ID.
+
+---
+
+### GET /announcements/definitions
+Vráti konfiguračné a meta informácie pre frontend.
+
+Obsahuje:
+- definície polí (typ, label, required, sortable, default)
+- enum hodnoty pre kategórie
+- defaultné triedenie zoznamu
+- povolené hodnoty pre sort a order
+
+Endpoint je určený na zostavovanie filtrov a formulárov na FE.
 
 ---
 
@@ -41,6 +95,12 @@ Prvý konfiguračný súbor používa taktiež custom **ConfigValidator** (io-ts
 Všetky parametre sú brané ako mandatory a musia byť správne nastavené (viď /src/config/config_announcements.yaml).
 
 Druhý konfiguračný súbor je využívaný pre **definitions endpoint** a obsahuje základné nastavenia (field names, enums, defaults). Je ľahko rozšíriteľný v prípade potreby ďalších polí.
+
+Taktiež potrebujeme .env pre prisma:
+
+```
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/announcements_db?schema=public"
+```
 
 ---
 
@@ -100,5 +160,6 @@ http://localhost:3001/docs/server-announcements-be
 * Iba PostgreSQL mám v Dockeri.
 * Swagger API je definovaný pomocou yaml súboru v /api/announcements-openapi.yaml
 * Taktiež som BE service robil ako celkok v rámci jedného dňa a teda som to priebežne necommitoval (nakoľko som to v zadaní prehliadol - moja chyba). S GIT-om ale skúsenosti mám, využívam ho priamo v práci.
+* Záznamy sa namockujú pomocou seed skriptu
 
 ---

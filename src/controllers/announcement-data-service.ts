@@ -70,6 +70,7 @@ export async function createAnnouncementImpl(req: Request, res: Response) {
             categories: body.categories
         });
 
+        log.info(`Announcement created with ID: ${created.id}`);
         return res.status(201).json(created);
     } catch (error: any) {
         log.error(`Error creating announcement: ${config.debug ? error.stack || error.message : error.message}`);
@@ -89,6 +90,7 @@ export async function updateAnnouncementImpl(req: Request, res: Response) {
 
         const updated: AnnouncementFull = await AnnouncementService.updateAnnouncement(id, body);
 
+        log.info(`Announcement updated with ID: ${updated.id}`);
         return res.status(200).json(updated);
     } catch (error: any) {
         if (error.status === 404) {

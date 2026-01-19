@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7cff035-1585-4715-8806-1b9e2218b577" name="Changes" comment="implement announcements management API with CRUD operations and OpenAPI documentation">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+    <list default="true" id="f7cff035-1585-4715-8806-1b9e2218b577" name="Changes" comment="add environment configuration and seed data for announcements management">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/seed.ts" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/seed.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/announcements-openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/announcements-openapi.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/announcement-data-service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/announcement-data-service.ts" afterDir="false" />
     </list>
-    <list id="17611dca-3483-4b22-8125-c6246ac0ea99" name="Do NOT Commit" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list id="17611dca-3483-4b22-8125-c6246ac0ea99" name="Do NOT Commit" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,18 +34,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/.idea/workspace.xml">
-      <ranges>
-        <range start1="6" end1="34" start2="6" end2="15" changelist="f7cff035-1585-4715-8806-1b9e2218b577" />
-        <range start1="59" end1="59" start2="40" end2="52" changelist="f7cff035-1585-4715-8806-1b9e2218b577" />
-        <range start1="132" end1="132" start2="125" end2="126" changelist="f7cff035-1585-4715-8806-1b9e2218b577" />
-        <range start1="136" end1="137" start2="130" end2="139" changelist="f7cff035-1585-4715-8806-1b9e2218b577" />
-        <range start1="138" end1="138" start2="140" end2="141" changelist="17611dca-3483-4b22-8125-c6246ac0ea99" />
-        <range start1="142" end1="142" start2="145" end2="149" changelist="17611dca-3483-4b22-8125-c6246ac0ea99" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -128,7 +113,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1768658708014</updated>
-      <workItem from="1768658709296" duration="38619000" />
+      <workItem from="1768658709296" duration="40087000" />
     </task>
     <task id="LOCAL-00001" summary="implement announcements management API with CRUD operations and OpenAPI documentation">
       <option name="closed" value="true" />
@@ -138,9 +123,23 @@
       <option name="project" value="LOCAL" />
       <updated>1768843811534</updated>
     </task>
+    <task id="LOCAL-00002" summary="add environment configuration and seed data for announcements management">
+      <option name="closed" value="true" />
+      <created>1768847769168</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1768847769168</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="implement announcements management API with CRUD operations and OpenAPI documentation" />
+    <MESSAGE value="add environment configuration and seed data for announcements management" />
+    <option name="LAST_COMMIT_MESSAGE" value="add environment configuration and seed data for announcements management" />
   </component>
 </project>

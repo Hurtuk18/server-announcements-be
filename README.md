@@ -163,3 +163,127 @@ http://localhost:3001/docs/server-announcements-be
 * Záznamy sa namockujú pomocou seed skriptu
 
 ---
+
+## 🚧 Možné vylepšenia / budúci vývoj
+
+* Pridať autentifikáciu a autorizáciu (napr. JWT)
+* Vytvorenie Unit a Integration testov (napr. Jest + Supertest)
+
+---
+
+## 🧪 Testovanie REST API (Postman)
+
+REST API backendu je možné jednoducho otestovať pomocou nástroja **Postman** (alebo podobného HTTP klienta).
+
+---
+
+### Predpoklady
+- Backend service je spustený pomocou:
+  ```bash
+  npm run dev
+  ```
+- Server beží na adrese:
+  ```
+  http://localhost:3001
+  ```
+- Databáza je spustená a naplnená dátami (migrácie + seed).
+
+---
+
+### GET /announcements/definitions
+Získa konfiguračné a meta informácie pre frontend (definície polí, enum hodnoty, defaultné triedenie).
+
+```
+GET http://localhost:3001/announcements/definitions
+```
+
+---
+
+### GET /announcements
+Získa zoznam oznámení.
+
+```
+GET http://localhost:3001/announcements
+```
+
+Voliteľné query parametre:
+- `search` – textové vyhľadávanie v title a content
+- `categories` – zoznam kategórií (OR logika)
+- `sort` – pole na triedenie (`title`, `publicationDate`, `lastUpdate`)
+- `order` – poradie triedenia (`asc`, `desc`)
+
+Príklad:
+```
+GET http://localhost:3001/announcements?search=city&categories=CITY&sort=lastUpdate&order=desc
+```
+
+---
+
+### POST /announcements
+Vytvorí nové oznámenie.
+
+```
+POST http://localhost:3001/announcements
+```
+
+Headers:
+```
+Content-Type: application/json
+```
+
+Body:
+```json
+{
+  "title": "Test announcement",
+  "content": "This is a test announcement created via Postman.",
+  "publicationDate": "01/20/2026 10:00",
+  "categories": ["CITY", "HEALTH"]
+}
+```
+
+---
+
+### GET /announcements/:id
+Získa detail oznámenia podľa ID (môžeme získať z POST resonse alebo z GET http://localhost:3001/announcements).
+
+```
+GET http://localhost:3001/announcements/{id}
+```
+
+---
+
+### PUT /announcements/:id
+Upraví existujúce oznámenie (ID môžeme získať z POST resonse alebo z GET http://localhost:3001/announcements).
+
+```
+PUT http://localhost:3001/announcements/{id}
+```
+
+Body:
+```json
+{
+  "title": "Updated title",
+  "content": "Updated content",
+  "publicationDate": "01/21/2026 11:30",
+  "categories": ["COMMUNITY_EVENTS"]
+}
+```
+
+---
+
+### DELETE /announcements/:id
+Vymaže oznámenie podľa ID (môžeme získať z POST resonse alebo z GET http://localhost:3001/announcements)..
+
+```
+DELETE http://localhost:3001/announcements/{id}
+```
+
+---
+
+### Swagger UI
+Kompletná dokumentácia REST API je dostupná na:
+
+```
+http://localhost:3001/docs/server-announcements-be
+```
+

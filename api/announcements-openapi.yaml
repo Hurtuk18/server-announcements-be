@@ -129,8 +129,12 @@ paths:
       parameters:
         - $ref: "#/components/parameters/AnnouncementId"
       responses:
-        "204":
-          description: Deleted
+        "200":
+          description: Deleted announcement
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Announcement"
         "404":
           $ref: "#/components/responses/NotFound"
         "500":

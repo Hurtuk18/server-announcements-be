@@ -159,7 +159,7 @@ http://localhost:3001/docs/server-announcements-be
 * Service som nedockerizoval nakoľko ide o lokálnu service, nakoľko som sa to snažil udržať jednoduché a sústredil som sa na požiadavky zadania.
 * Iba PostgreSQL mám v Dockeri.
 * Swagger API je definovaný pomocou yaml súboru v /api/announcements-openapi.yaml
-* Taktiež som BE service robil ako celkok v rámci jedného dňa a teda som to priebežne necommitoval (nakoľko som to v zadaní prehliadol - moja chyba). S GIT-om ale skúsenosti mám, využívam ho priamo v práci.
+* Taktiež som BE service robil ako celok v rámci jedného dňa (prvý deň na zadanie) a teda som to priebežne necommitoval (nakoľko som to v zadaní prehliadol - moja chyba). Zároveň som zadanie dával do GIT v posledný deň spoločne s FE. S GIT-om ale skúsenosti mám, využívam ho priamo v práci.
 * Záznamy sa namockujú pomocou seed skriptu
 
 ---
